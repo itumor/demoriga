@@ -45,7 +45,7 @@ kubectl port-forward service/my-argo-cd-argocd-server -n default 8080:443
 kubectl create namespace crossplane-system
 ```
 
-2. Add and  updaterepository
+2. Add and updaterepository
 ```
 helm repo add crossplane-stable https://charts.crossplane.io/stable
 helm repo update
@@ -79,3 +79,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
 ```
+4. Install crossplane sealed
+```
+helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
+
+helm repo update
+
+helm install my-sealed-secrets bitnami-labs/sealed-secrets --version 2.7.3
+```
+
