@@ -31,7 +31,7 @@ helm install my-argo-cd argo/argo-cd --version 5.19.8
 ```
 kubectl -n default get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-fn4lt4HgJ2srwIvd
+0MzUgRxrdpXD7GFf
 ```
 
 ```
@@ -88,58 +88,13 @@ spec:
     syncOptions:
       - CreateNamespace=true
 ```
-4. Install crossplane sealed
+
+# Install Configuration Package
 ```
-helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
-
-helm repo update
-
-helm install my-sealed-secrets bitnami-labs/sealed-secrets --version 2.7.3
+kubectl crossplane install configuration registry.upbound.io/xp/getting-started-with-aws:v1.10.2
 ```
 
-5. 
-
+1. Wait until all packages become healthy:
 ```
-
-** Please be patient while the chart is being deployed **
-
-You should now be able to create sealed secrets.
-
-1. Install the client-side tool (kubeseal) as explained in the docs below:
-
-    https://github.com/bitnami-labs/sealed-secrets#installation-from-source
-
-2. Create a sealed secret file running the command below:
-
-    kubectl create secret generic secret-name --dry-run=client --from-literal=foo=bar -o [json|yaml] | \
-    kubeseal \
-      --controller-name=my-sealed-secrets \
-      --controller-namespace=default \
-      --format yaml > mysealedsecret.[json|yaml]
-
-The file mysealedsecret.[json|yaml] is a commitable file.
-
-If you would rather not need access to the cluster to generate the sealed secret you can run:
-
-    kubeseal \
-      --controller-name=my-sealed-secrets \
-      --controller-namespace=default \
-      --fetch-cert > mycert.pem
-
-to retrieve the public cert used for encryption and store it locally. You can then run 'kubeseal --cert mycert.pem' instead to use the local cert e.g.
-
-    kubectl create secret generic secret-name --dry-run=client --from-literal=foo=bar -o [json|yaml] | \
-    kubeseal \
-      --controller-name=my-sealed-secrets \
-      --controller-namespace=default \
-      --format [json|yaml] --cert mycert.pem > mysealedsecret.[json|yaml]
-
-3. Apply the sealed secret
-
-    kubectl create -f mysealedsecret.[json|yaml]
-
-Running 'kubectl get secret secret-name -o [json|yaml]' will show the decrypted secret that was generated from the sealed secret.
-
-Both the SealedSecret and generated Secret must have the same name and namespace.
+ kubectl get pkg
 ```
-
