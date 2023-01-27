@@ -98,3 +98,20 @@ kubectl crossplane install configuration registry.upbound.io/xp/getting-started-
 ```
  kubectl get pkg
 ```
+
+## The following commands can be used to identify existing XRC, XR, and managed resources:
+
+```
+XRC: kubectl get claim
+XR: kubectl get composite
+Managed Resources: kubectl get managed
+kubectl get crd -o name | grep crossplane.io
+```
+
+## If you only care about the installed packages, you can also run below command which will show you all installed Configuration and Provider packages:
+```
+kubectl get pkg
+```
+
+### https://doc.crds.dev/
+
