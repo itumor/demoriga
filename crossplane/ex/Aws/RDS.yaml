@@ -18,7 +18,7 @@ spec:
     passwordSecretRef:
       key: password
       name: example-dbinstance
-      namespace: upbound-system
+      namespace: default
     publiclyAccessible: false
     region: us-west-1
     skipFinalSnapshot: true
