@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: see-db-job
-  namespace: crossplane-system
+  namespace: default
 spec:
   template:
     spec:
@@ -17,22 +17,22 @@ spec:
           - name: PGHOST
             valueFrom:
               secretKeyRef:
-                name: aws-rdspostgresql-conn
+                name: example-dbinstance-out
                 key: endpoint
           - name: PGUSER
             valueFrom:
               secretKeyRef:
-                name: aws-rdspostgresql-conn
+                name: example-dbinstance-out
                 key: username
           - name: PGPASSWORD
             valueFrom:
               secretKeyRef:
-                name: aws-rdspostgresql-conn
+                name: example-dbinstance-out
                 key: password
           - name: PGPORT
             valueFrom:
               secretKeyRef:
-                name: aws-rdspostgresql-conn
+                name: example-dbinstance-out
                 key: port
       restartPolicy: Never
   backoffLimit: 4
