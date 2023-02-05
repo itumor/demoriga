@@ -1,5 +1,5 @@
-apiVersion: database.aws.crossplane.io/v1beta1
-kind: RDSInstance
+apiVersion: rds.aws.upbound.io/v1beta1
+kind: Instance
 metadata:
   name: rdspostgresql
 spec:
