@@ -1,11 +1,7 @@
-apiVersion: s3.aws.crossplane.io/v1beta1
+apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
-  name: test-bucket
-  annotations:
-    # This will be the actual bucket name. It must be globally unique, so you
-    # probably want to change it before trying to apply this example.
-    crossplane.io/external-name: crossplane-example-bucket-eu-central-1-huma
+  name: crossplane-example-bucket-eu-central-1-huma
 spec:
   forProvider:
     acl: private
@@ -49,10 +45,10 @@ spec:
   providerConfigRef:
     name: default
 ---
-apiVersion: s3.aws.crossplane.io/v1beta1
+apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
-  name: repl-dest
+  name: crossplane-example-repl-dest-eu-central-1-huma
   annotations:
     # This will be the actual bucket name. It must be globally unique, so you
     # probably want to change it before trying to apply this example.
