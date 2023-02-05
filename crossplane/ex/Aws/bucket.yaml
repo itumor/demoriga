@@ -47,7 +47,7 @@ spec:
           expiration:
             days: 15
   providerConfigRef:
-    name: default
+    name: providerconfig.aws.upbound.io/default
 ---
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
@@ -71,5 +71,5 @@ spec:
     versioningConfiguration:
       status: Enabled
   providerConfigRef:
-    name: default
+    name: providerconfig.aws.upbound.io/default
 

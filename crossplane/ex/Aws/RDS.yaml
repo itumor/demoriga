@@ -14,3 +14,5 @@ spec:
   writeConnectionSecretToRef:
     namespace: crossplane-system
     name: aws-rdspostgresql-conn
+  providerConfigRef:
+    name: providerconfig.aws.upbound.io/default
