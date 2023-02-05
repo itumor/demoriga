@@ -28,3 +28,5 @@ spec:
   writeConnectionSecretToRef:
     name: example-dbinstance-out
     namespace: default
+
+    #kubectl create secret generic example-dbinstance --from-literal=password=supersecret
