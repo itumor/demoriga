@@ -20,7 +20,7 @@ spec:
       name: example-dbinstance
       namespace: default
     publiclyAccessible: false
-    region: us-west-1
+    region: us-east-1
     skipFinalSnapshot: true
     storageEncrypted: false
     storageType: gp2
