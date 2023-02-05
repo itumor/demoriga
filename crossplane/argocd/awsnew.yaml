@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: awsnew
+spec:
+  destination:
+    name: ''
+    namespace: ''
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ./crossplane/ex/awsnew/
+    repoURL: 'https://github.com/itumor/demoriga.git'
+    targetRevision: HEAD
+    directory:
+      jsonnet:
+        tlas:
+          - {}
+  project: default
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
