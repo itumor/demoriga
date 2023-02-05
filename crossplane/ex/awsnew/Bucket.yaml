@@ -1,0 +1,11 @@
+apiVersion: s3.aws.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  labels:
+    crossplane.io/external-name: crossplane-demo-bucket-huma
+    testing.upbound.io/example-name: input_bucket_label
+  name: crossplane-demo-bucket-huma
+spec:
+  forProvider:
+    forceDestroy: true
+    region: us-west-1

@@ -1,0 +1,17 @@
+apiVersion: dynamodb.aws.upbound.io/v1beta1
+kind: Table
+metadata:
+  annotations:
+    meta.upbound.io/example-id: appsync/v1beta1/datasource
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    attribute:
+      - name: UserId
+        type: S
+    hashKey: UserId
+    readCapacity: 1
+    region: us-west-1
+    writeCapacity: 1
