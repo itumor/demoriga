@@ -2,9 +2,9 @@ apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
   labels:
-    crossplane.io/external-name: ${Rand.RFC1123Subdomain}
+    crossplane.io/external-name: crossplane-example-bucket-eu-central-1-huma
     testing.upbound.io/example-name: input_bucket_label
-  name: ${Rand.RFC1123Subdomain}
+  name: crossplane-example-bucket-eu-central-1-huma
 spec:
   forProvider:
     forceDestroy: true
